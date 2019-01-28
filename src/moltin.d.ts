@@ -57,7 +57,7 @@ export namespace moltin {
       version: string
       language: 'JS'
     }
-    constructor(options: ConfigOptions)
+    constructor(options: ConfigOptions): void
   }
 
   export interface StorageFactory {
@@ -98,13 +98,13 @@ export namespace moltin {
       body?: any,
       token?: string
     ): Promise<T>
-    constructor(Config)
+    constructor(Config: void): void
   }
 
   export interface BaseExtend {
     request: RequestFactory
     config: Config
-    constructor(config: Config)
+    constructor(config: Config): void
     All<T = any>(token?: string): Promise<T>
     Get<T = any>(id: string, token?: string): Promise<T>
     Filter(filter: any): this
@@ -251,7 +251,7 @@ export namespace moltin {
     // BaseExtend
     request: RequestFactory
     config: Config
-    constructor(config: Config)
+    constructor(config: Config): void
     Filter(filter: any): this
     Limit(value: number): this
     Offset(value: number): this
@@ -291,7 +291,7 @@ export namespace moltin {
     // BaseExtend
     request: RequestFactory
     config: Config
-    constructor(config: Config)
+    constructor(config: Config): void
     Get<T = any>(id: string, token?: string): Promise<T>
     Filter(filter: any): this
     Limit(value: number): this
@@ -358,7 +358,7 @@ export namespace moltin {
     // CartEndpoint
     endpoint: 'carts'
     cartId: string
-    constructor(request: RequestFactory, id: string)
+    constructor(request: RequestFactory, id: string): void
     Get<T = any>(): Promise<T>
     Items<T = any>(): Promise<T>
     AddProduct<T = any>(productId: string, quantity?: number, data?: any): Promise<T>
@@ -373,8 +373,8 @@ export namespace moltin {
      * @deprecated Use UpdateItem method
      */
     UpdateItemQuantity<T = any>(itemId: string, quantity: number): Promise<T>
-    AddItemTax<T = any>(itemId: string, taxData: ItemTaxObject)
-    RemoveItemTax<T = any>(itemId: string, taxItemId: string)
+    AddItemTax<T = any>(itemId: string, taxData: ItemTaxObject): void
+    RemoveItemTax<T = any>(itemId: string, taxItemId: string): void
     Checkout<T = any>(
       customer: CheckoutCustomer | CheckoutCustomerObject,
       billingAddress: Address,
