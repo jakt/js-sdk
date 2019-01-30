@@ -373,8 +373,8 @@ export namespace moltin {
      * @deprecated Use UpdateItem method
      */
     UpdateItemQuantity<T = any>(itemId: string, quantity: number): Promise<T>
-    AddItemTax<T = any>(itemId: string, taxData: ItemTaxObject): void
-    RemoveItemTax<T = any>(itemId: string, taxItemId: string): void
+    AddItemTax<T = any>(itemId: string, taxData: ItemTaxObject): Promise<T>
+    RemoveItemTax<T = any>(itemId: string, taxItemId: string): Promise<T>
     Checkout<T = any>(
       customer: CheckoutCustomer | CheckoutCustomerObject,
       billingAddress: Address,
