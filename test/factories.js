@@ -424,7 +424,8 @@ export const jobsArray = [
 export const rateLimitError = {
   errors: [
     {
-      status: 429
+      status: 429,
+      detail: 'Too Many Requests'
     }
   ]
 }

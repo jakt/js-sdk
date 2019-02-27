@@ -21,7 +21,9 @@ describe('Moltin error handling', () => {
       .reply(429, rateLimitError)
 
     return Moltin.Products.All().catch(error => {
-      assert.deepEqual(error, { errors: [{ status: 429 }] })
+      assert.deepEqual(error, {
+        errors: [{ status: 429, detail: 'Too Many Requests' }]
+      })
     })
   })
 })

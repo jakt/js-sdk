@@ -58,7 +58,7 @@ export function parseJSON(response) {
 
       if (!response.ok) {
         json = {
-          errors: [{ status: response.status, detail: response.detail }]
+          errors: [{ status: response.status, detail: response.statusText }]
         }
       }
 

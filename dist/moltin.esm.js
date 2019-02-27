@@ -240,7 +240,7 @@ function parseJSON(response) {
         json = {
           errors: [{
             status: response.status,
-            detail: response.detail
+            detail: response.statusText
           }]
         };
       }
