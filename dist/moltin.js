@@ -633,10 +633,11 @@
         }
 
         if (!response.ok) {
+          var parsedErrorsBody = JSON.parse(body).errors;
           json = {
             errors: [{
               status: response.status,
-              detail: response.detail
+              detail: parsedErrorsBody && parsedErrorsBody.length > 0 && parsedErrorsBody[0].detail
             }]
           };
         }

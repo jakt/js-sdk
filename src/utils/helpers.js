@@ -57,8 +57,17 @@ export function parseJSON(response) {
       }
 
       if (!response.ok) {
+        const parsedErrorsBody = JSON.parse(body).errors
         json = {
-          errors: [{ status: response.status, detail: response.detail }]
+          errors: [
+            {
+              status: response.status,
+              detail:
+                parsedErrorsBody &&
+                parsedErrorsBody.length > 0 &&
+                parsedErrorsBody[0].detail
+            }
+          ]
         }
       }
 
