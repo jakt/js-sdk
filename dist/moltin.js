@@ -635,7 +635,8 @@
         if (!response.ok) {
           json = {
             errors: [{
-              status: response.status
+              status: response.status,
+              detail: response.detail
             }]
           };
         }
